@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Form</title>
+    <script>
+	function Check() {
+        var flag=1;
+        var fn= document.myform.firstname.value;
+        var ln= document.myform.lastname.value;
+        var email=document.myform.email.value;
+        var contact = document.myform.contact.value;
+        var pin=document.myform.pin.value; 
+        
+        if (!fn.match(/^[a-zA-Z]+$/))
+        {
+            flag=0;
+            alert("Enter characters only for first name.");
+        }
+        if (!ln.match(/^[a-zA-Z]+$/))
+        {
+            flag=0;
+            alert("Enter characters only for last name.");
+        }
+        
+        if(! email.match(/^[a-zA-Z0-9\.]+@[a-z]+\.(com|net|edu|gov|in)$/))
+        {
+            flag=0;
+            alert("Invalid email");
+        }
+        
+        if (!contact.match(/^(\+91)?[0-9]{10}$/))
+        {
+            flag=0;
+            alert("Invalid number");
+        }
+        if (!pin.match(/^[0-8]{1}[0-9]{5}$/))
+        {
+            flag=0;
+            alert("Invalid pin");
+        }
+        
+        if(flag===1)
+            alert("Form Submitted Successfully!")
+	}
+    </script>
+ </head>
+  <body>
+	<form method="post" name="myform" class="myform">
+		 First name:&nbsp;
+  		<input type="text" name="firstname"><br><br>
+  		Last name:&nbsp;
+  		<input type="text" name="lastname"><br><br>
+        Gender: &nbsp;
+		<input type="radio" name="gender">Male&nbsp;
+		<input type="radio" name="gender">Female<br><br>
+        Email:&nbsp;
+        <input type="email" name="email"><br><br>
+        Contact Number:&nbsp;
+        <input type="text" name="contact"><br><br>
+        Pincode: &nbsp;
+        <input type="text" name="pin"><br><br>
+        Date Of Birth:&nbsp;
+        <input type="date" name="dob" ><br><br>
+        Current Semester:&nbsp;
+        <select name="sem">
+            <option selected disabled>Choose Semester</option>
+            <option>Sem 1</option>
+            <option>Sem 2</option>
+            <option>Sem 3</option>
+            <option>Sem 4</option>
+            <option>Sem 5</option>
+            <option>Sem 6</option>
+            <option>Sem 7</option>
+            <option>Sem 8</option>
+         </select><br><br>
+        Do you have a Train Pass: &nbsp;
+        <input type="checkbox" name="checkbox">YES<br><br>
+        
+		<input type="submit" value="Submit" onclick="Check()">
+	</form>
+  </body>
+</html>
